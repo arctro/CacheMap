@@ -31,7 +31,7 @@ public class RuleCacheMap<K, V>{
 	
 	Rule rule;
 	
-	int delay = 100;
+	int delay = 50;
 	boolean running = true;
 	
 	/**
