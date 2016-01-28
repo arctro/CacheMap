@@ -1,10 +1,10 @@
-package com.arctro.cachemap;
+package com.arctro;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-import com.arctro.cachemap.exceptions.ValueDoesNotExistException;
+import com.arctro.exceptions.ValueDoesNotExistException;
 
 /**
  * A hashmap that expires values after a defined time. Checks the next 10 keys every millisecond 

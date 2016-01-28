@@ -1,14 +1,14 @@
-package com.arctro.cachemap;
+package com.arctro;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-import com.arctro.cachemap.exceptions.ValueDoesNotExistException;
+import com.arctro.exceptions.ValueDoesNotExistException;
 
 /**
  * A hashmap that stores values and expire times for the values. Unlike
- * a {@link com.arctro.cachemap.CacheMap CacheMap} it does not check if
+ * a {@link com.arctro.CacheMap CacheMap} it does not check if
  * a value has expired until a function has been called on it. It then
  * checks if the value has expired and removes it if needed.
  * @author Ben McLean

@@ -1,4 +1,4 @@
-package com.arctro.cachemap.exceptions;
+package com.arctro.exceptions;
 
 /**
  * Thrown if value does not exist or is expired

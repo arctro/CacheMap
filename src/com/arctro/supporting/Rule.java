@@ -1,7 +1,7 @@
-package com.arctro.cachemap.supporting;
+package com.arctro.supporting;
 
 /**
- * Defines a rule for calculating if a {@link com.arctro.cachemap.RuleCacheMap RateCacheMap} entry
+ * Defines a rule for calculating if a {@link com.arctro.RuleCacheMap RateCacheMap} entry
  * should be expired or removed.
  * @author Ben McLean
  * @version 1.0

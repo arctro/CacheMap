@@ -1,17 +1,17 @@
-package com.arctro.cachemap;
+package com.arctro;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.arctro.cachemap.exceptions.ValueDoesNotExistException;
-import com.arctro.cachemap.supporting.Rule;
+import com.arctro.exceptions.ValueDoesNotExistException;
+import com.arctro.supporting.Rule;
 
 /**
  * A hashmap that removes values based on a rule defined in the constructor.
  * The rule recives the values of the total number of 'hits' (number of times
  * it has been accessed), the number of hits in the last x milliseconds (defined
- * by {@link com.arctro.cachemap.supporting.Rule#interval() interval()}), the age 
+ * by {@link com.arctro.supporting.Rule#interval() interval()}), the age 
  * of the value, and the value itself. The map also allows the entire map to be 
  * expired.
  * @author Ben McLean 
