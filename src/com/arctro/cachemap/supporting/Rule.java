@@ -16,7 +16,7 @@ public abstract class Rule {
 	
 	/**
 	 * The rule for entry deletion
-	 * @param hits The number of hits/uses in the last x milliseconds (as defined by {@link #interval() interval()}.
+	 * @param hits The number of hits/uses in the last x milliseconds (as defined by {@link #interval() interval()}).
 	 * @param totalHits The total number of hits/uses of the entry
 	 * @param age The age of the entry
 	 * @param value The value of the entry

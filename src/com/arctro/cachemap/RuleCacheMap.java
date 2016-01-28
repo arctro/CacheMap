@@ -29,6 +29,7 @@ public class RuleCacheMap<K, V>{
 	//Stores the creation time of the value
 	HashMap<K, Long> created;
 	
+	//The rule for expiring the values
 	Rule rule;
 	
 	int delay = 50;
