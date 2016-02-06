@@ -9,11 +9,10 @@ import com.arctro.supporting.Rule;
 
 /**
  * A hashmap that removes values based on a rule defined in the constructor.
- * The rule recives the values of the total number of 'hits' (number of times
+ * The rule receives the values of the total number of 'hits' (number of times
  * it has been accessed), the number of hits in the last x milliseconds (defined
- * by {@link com.arctro.supporting.Rule#interval() interval()}), the age 
- * of the value, and the value itself. The map also allows the entire map to be 
- * expired.
+ * by {@link com.arctro.supporting.Rule#interval() interval()}), the age of the 
+ * value, and the value itself. The map also allows the entire map to be expired.
  * @author Ben McLean 
  * @version 1.0
  * @param <K> The key type
