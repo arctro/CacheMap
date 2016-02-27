@@ -1,8 +1,7 @@
 package com.arctro;
 
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.arctro.exceptions.ValueDoesNotExistException;
 
@@ -18,9 +17,9 @@ import com.arctro.exceptions.ValueDoesNotExistException;
  */
 public class CacheMap<K, V>{
 	//Stores the values
-	HashMap<K, V> cache;
+	ConcurrentHashMap<K, V> cache;
 	//Stores the expire time of the values
-	HashMap<K, Long> cacheExpire;
+	ConcurrentHashMap<K, Long> cacheExpire;
 	
 	Iterator<K> stagedIterator;
 	
@@ -33,8 +32,8 @@ public class CacheMap<K, V>{
 	 * Create an empty CacheMap with no expiry
 	 */
 	public CacheMap(){
-		cache = new LinkedHashMap<K, V>();
-		cacheExpire = new LinkedHashMap<K, Long>();
+		cache = new ConcurrentHashMap<K, V>();
+		cacheExpire = new ConcurrentHashMap<K, Long>();
 		stagedIterator = cacheExpire.keySet().iterator();
 		
 		Thread t = new Thread(){
@@ -58,8 +57,8 @@ public class CacheMap<K, V>{
 	 * @param expire The time in milliseconds to expire the CacheMap
 	 */
 	public CacheMap(final long expire){
-		cache = new LinkedHashMap<K, V>();
-		cacheExpire = new LinkedHashMap<K, Long>();
+		cache = new ConcurrentHashMap<K, V>();
+		cacheExpire = new ConcurrentHashMap<K, Long>();
 		stagedIterator = cacheExpire.keySet().iterator();
 		
 		Thread t = new Thread(){
@@ -139,7 +138,7 @@ public class CacheMap<K, V>{
 	 * Get the HashMap storing all values
 	 * @return Raw values
 	 */
-	public HashMap<K, V> raw(){
+	public ConcurrentHashMap<K, V> raw(){
 		return cache;
 	}
 	
@@ -147,7 +146,7 @@ public class CacheMap<K, V>{
 	 * Get the HashMap storing all expire times
 	 * @return The expire HashMap
 	 */
-	public HashMap<K, Long> rawExpire(){
+	public ConcurrentHashMap<K, Long> rawExpire(){
 		return cacheExpire;
 	}
 	

@@ -1,8 +1,8 @@
 package com.arctro;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.arctro.exceptions.ValueDoesNotExistException;
 import com.arctro.supporting.Rule;
@@ -20,13 +20,13 @@ import com.arctro.supporting.Rule;
  */
 public class RuleCacheMap<K, V>{
 	//Stores the values
-	HashMap<K, V> cache;
+	ConcurrentHashMap<K, V> cache;
 	//Stores the total count of accesses
-	HashMap<K, Integer> totalHits;
+	ConcurrentHashMap<K, Integer> totalHits;
 	//Stores the number of hits in the last x minutes
 	PassiveCacheMap<K, Integer> hits;
 	//Stores the creation time of the value
-	HashMap<K, Long> created;
+	ConcurrentHashMap<K, Long> created;
 	
 	//The rule for expiring the values
 	Rule rule;
@@ -39,10 +39,10 @@ public class RuleCacheMap<K, V>{
 	 * @param rule The rule to expire values by
 	 */
 	public RuleCacheMap(Rule rule){
-		cache = new HashMap<K, V>();
-		totalHits = new HashMap<K, Integer>();
+		cache = new ConcurrentHashMap<K, V>();
+		totalHits = new ConcurrentHashMap<K, Integer>();
 		hits = new PassiveCacheMap<K, Integer>();
-		created = new HashMap<K, Long>();
+		created = new ConcurrentHashMap<K, Long>();
 		this.rule = rule;
 		
 		Thread t = new Thread(){
@@ -67,10 +67,10 @@ public class RuleCacheMap<K, V>{
 	 * @param expire The time in milliseconds to expire the CacheMap
 	 */
 	public RuleCacheMap(Rule rule, final long expire){
-		cache = new HashMap<K, V>();
-		totalHits = new HashMap<K, Integer>();
+		cache = new ConcurrentHashMap<K, V>();
+		totalHits = new ConcurrentHashMap<K, Integer>();
 		hits = new PassiveCacheMap<K, Integer>();
-		created = new HashMap<K, Long>();
+		created = new ConcurrentHashMap<K, Long>();
 		this.rule = rule;
 		
 		Thread t = new Thread(){
@@ -158,7 +158,7 @@ public class RuleCacheMap<K, V>{
 	 * Get the HashMap storing all values
 	 * @return Raw values
 	 */
-	public HashMap<K, V> raw(){
+	public ConcurrentHashMap<K, V> raw(){
 		return cache;
 	}
 	
